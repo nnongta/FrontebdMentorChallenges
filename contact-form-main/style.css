@@ -1,0 +1,231 @@
+
+:root {
+  --lightergreen: hsl(148, 38%, 91%);
+  --mediumgreen: hsl(169, 82%, 27%);
+  --red: hsl(0, 66%, 54%);
+
+  --white: hsl(0, 0%, 100%);
+  --grey500: hsl(186, 15%, 59%);
+  --grey900: hsl(187, 24%, 22%);
+}
+
+.attribution {
+  font-size: 16px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+body {
+  background-color: var(--lightergreen);
+  min-height: 100vh;
+  font-family: "Karla", sans-serif;
+  display: grid;
+  place-content: center;
+
+}
+
+label{
+    color: var(--grey900);
+}
+
+input[type='text'],
+input[type='email'],
+textarea{
+    width: 100%;
+    padding: .5rem;
+    margin-top: .5rem;
+    border: 1px solid var(--mediumgreen);
+    border-radius: .35rem;
+}
+
+input:focus,
+textarea:focus{
+    outline: 1px solid var(--grey500);
+    border: 1px solid var(--grey500);
+}
+
+input[type='text'].form-error,
+input[type='email'].form-error{
+    border: 1px solid var(--red);
+}
+
+
+.requried-input{
+    color: var(--mediumgreen);
+}
+
+
+
+.form-alert{
+    display: none;
+    color: var(--red);
+    margin-top: .5rem;
+
+}
+
+.form-alert.form-error{
+    display: block;
+}
+
+.contact-form {
+  background-color: var(--white);
+  margin: 1rem;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.contact-form h1{
+    color: var(--grey900);
+    margin-bottom: 1.25rem;
+
+}
+
+.contact-form .form-item{
+    margin-bottom: 1.5rem;
+}
+
+.contact-form .form-item:nth-child(1){
+    display: flex;
+    gap: 2rem;
+}
+
+.contact-form .form-item:nth-child(3) .radio-inputs {
+    margin-top: .5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.contact-form .form-item:nth-child(3) .radio-inputs .radio-options{
+    cursor: pointer;
+    width: 100%;
+    padding: .5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    outline: 1px solid var(--mediumgreen);
+    border-radius: .35rem;
+}
+
+.contact-form .form-item:nth-child(3) .radio-inputs .radio-options.active{
+    background-color: var(--lightergreen);
+}
+
+.contact-form .form-item:nth-child(3) input[type='radio']{
+    appearance: none;
+    width: .5rem;
+    height: .5rem;
+    outline: 2px solid var(--mediumgreen);
+    outline-offset: 3px;
+    border-radius: 50%;
+}
+
+.contact-form .form-item:nth-child(3) input[type='radio']:checked{
+    background-color: var(--mediumgreen);
+}
+ 
+.contact-form .form-item:nth-child(3) .radio-inputs .radio-options label{
+    cursor: pointer;
+    width: 100%;
+}
+
+.contact-form .form-item:nth-child(5){
+    margin-bottom: 2rem;
+}
+
+.contact-form .form-item:nth-child(5) div{
+    display: flex;
+    gap: 1rem;
+}
+
+.contact-form .form-item:nth-child(5) input[type='checkbox'] {
+    cursor: pointer;
+    accent-color: var(--mediumgreen);
+}
+
+input#conseat {
+    accent-color: var(--mediumgreen);
+}
+
+.contact-form .form-item:nth-child(5) label{
+    cursor: pointer;
+}
+
+
+.contact-form .submit-btn{
+    cursor: pointer;
+    background-color: var(--mediumgreen);
+    color: var(--white);
+    width: 100%;
+    padding: .75rem;
+    border: 0;
+    outline: 0;
+    border-radius: .35rem;
+}
+
+.contact-form .submit-btn:hover{
+    background-color: var(--grey900);
+}   
+
+.succes-box{
+    background-color: var(--grey900);
+    color:var(--lightergreen);
+    width: max-content;
+    padding: 1rem;
+    pointer-events: none;
+    opacity: 0;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: .35rem;
+}
+
+.succes-box.active{
+    display: block;
+    pointer-events: all;
+
+    animation-name: fadeOut;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeOut{
+    0%, 25%, 50%, 75% {
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
+
+.succes-box .message-header {
+    color: var(--white);
+    margin-bottom: .5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+@media (max-width: 380px) {
+    .contact-form .form-item:nth-child(1){
+        flex-direction: column;
+    }
+
+    .contact-form .form-item:nth-child(3) .radio-inputs {
+        flex-direction: column;
+    }
+
+    textarea{
+        height: 200px;
+    }
+
+    .succes-box{
+        width: 35ch;
+        top: 5%;
+    }
+}
